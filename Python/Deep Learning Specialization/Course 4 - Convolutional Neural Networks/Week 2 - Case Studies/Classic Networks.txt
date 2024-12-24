@@ -1,0 +1,111 @@
+LeNet-5 
+https://www.geeksforgeeks.org/lenet-5-architecture/
+
+In the late 1990s, Yann LeCun, Léon Bottou, Yoshua Bengio, and Patrick Haffner created a convolutional neural network (CNN) based architecture called LeNet. The LeNet-5 architecture was developed to recognize handwritten and machine-printed characters, a function that showcased the potential of deep learning in practical applications. This article provides an in-depth exploration of the LeNet-5 architecture, examining each component and its contribution in deep learning.
+
+LeNet-5 is a convolutional neural network (CNN) architecture that introduced several key features and innovations that have become standard in modern deep learning. It demonstrated the effectiveness of CNNs for image recognition tasks and introduced key concepts such as convolution, pooling, and hierarchical feature extraction that underpin modern deep learning models.
+
+
+
+Alexnet
+https://www.geeksforgeeks.org/ml-getting-started-with-alexnet/?ref=header_outind
+
+This article is focused on providing an introduction to the AlexNet architecture. Its name comes from one of the leading authors of the AlexNet paper– Alex Krizhevsky. It won the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) 2012 with a top-5 error rate of 15.3% (beating the runner up which had a top-5 error rate of 26.2%).
+
+The most important features of the AlexNet paper are:
+
+    As the model had to train 60 million parameters (which is quite a lot), it was prone to overfitting. According to the paper, the usage of Dropout and Data Augmentation significantly helped in reducing overfitting. The first and second fully connected layers in the architecture thus used a dropout of 0.5 for the purpose. Artificially increasing the number of images through data augmentation helped in the expansion of the dataset dynamically during runtime, which helped the model generalize better.
+    Another distinct factor was using the ReLU activation function instead of tanh or sigmoid, which resulted in faster training times (a decrease in training time by 6 times). Deep Learning Networks usually employ ReLU non-linearity to achieve faster training times as the others start saturating when they hit higher activation values.
+
+The Architecture
+
+The architecture consists of 5 Convolutional layers, with the 1st, 2nd and 5th having Max-Pooling layers for proper feature extraction. The Max-Pooling layers are overlapped having strides of 2 with filter size 3×3. This resulted in decreasing the top-1 and top-5 error rates by 0.4% and 0.3% respectively in comparison to non-overlapped Max-Pooling layers. They are followed by 2 fully-connected layers (each with dropout) and a softmax layer at the end for predictions.
+
+The figure below shows the architecture of AlexNet with all the layers defined.
+
+
+
+
+VGG - 16
+https://www.geeksforgeeks.org/vgg-16-cnn-model/
+
+The VGG-16 model is a convolutional neural network (CNN) architecture that was proposed by the Visual Geometry Group (VGG) at the University of Oxford. It is characterized by its depth, consisting of 16 layers, including 13 convolutional layers and 3 fully connected layers. VGG-16 is renowned for its simplicity and effectiveness, as well as its ability to achieve strong performance on various computer vision tasks, including image classification and object recognition. The model’s architecture features a stack of convolutional layers followed by max-pooling layers, with progressively increasing depth. This design enables the model to learn intricate hierarchical representations of visual features, leading to robust and accurate predictions. Despite its simplicity compared to more recent architectures, VGG-16 remains a popular choice for many deep learning applications due to its versatility and excellent performance.
+
+
+
+
+ResNet 
+https://www.geeksforgeeks.org/residual-networks-resnet-deep-learning/
+
+After the first CNN-based architecture (AlexNet) that win the ImageNet 2012 competition, Every subsequent winning architecture uses more layers in a deep neural network to reduce the error rate. This works for less number of layers, but when we increase the number of layers, there is a common problem in deep learning associated with that called the Vanishing/Exploding gradient. This causes the gradient to become 0 or too large. Thus when we increases number of layers, the training and test error rate also increases. 
+
+ResNet, which was proposed in 2015 by researchers at Microsoft Research introduced a new architecture called Residual Network. 
+
+Residual Network: In order to solve the problem of the vanishing/exploding gradient, this architecture introduced the concept called Residual Blocks. In this network, we use a technique called skip connections. The skip connection connects activations of a  layer to further layers by skipping some layers in between. This forms a residual block. Resnets are made by stacking these residual blocks together. 
+
+
+
+1x1 convolution
+
+A 1x1 network, also known as a 1x1 convolution, is a filter in a convolutional neural network (CNN) that has a single row and column, as opposed to the 3x3 or 5x5 dimensions of traditional filters. 1x1 networks are used to: 
+
+Control channels
+1x1 networks can adjust the number of channels in a model, which can help capture features at different scales. For example, a 1x1 network can be used to reduce the number of channels in a color image to create a black and white image. 
+
+Reduce dimensionality
+1x1 networks can be used to reduce the number of channels while keeping the height and width of the feature maps the same. This is called "dimensionality reduction". 
+
+Make models deeper
+1x1 networks can be used to make models deeper and have more parameters without changing their structure. This is because 1x1 networks are essentially matrix multiplies, which are relatively inexpensive. 
+
+Apply non-linearity
+1x1 networks can be used to apply non-linearity after convolutions. 
+
+1x1 networks are often used in conjunction with larger convolutions to create networks with a varying number of channels at different layers. 
+
+
+
+Inception Network
+https://www.geeksforgeeks.org/ml-inception-network-v1/
+
+The Inception network was an important milestone in the development of CNN classifiers. Prior to its inception (pun intended), most popular CNNs just stacked convolution layers deeper and deeper, hoping to get better performance.
+
+The Inception network on the other hand, was complex (heavily engineered). It used a lot of tricks to push performance; both in terms of speed and accuracy. Its constant evolution lead to the creation of several versions of the network. The popular versions are as follows:
+
+    Inception v1.
+    Inception v2 and Inception v3.
+    Inception v4 and Inception-ResNet.
+
+
+
+
+MobileNet
+https://medium.com/@godeep48/an-overview-on-mobilenet-an-efficient-mobile-vision-cnn-f301141db94d
+
+MobileNet is a simple but efficient and not very computationally intensive convolutional neural networks for mobile vision applications. MobileNet is widely used in many real-world applications which includes object detection, fine-grained classifications, face attributes, and localization. In this lecture, I will explain you the overview of MobileNet and how exactly it becomes the most efficient and lightweight neural network.MobileNet is a simple but efficient and not very computationally intensive convolutional neural networks for mobile vision applications. MobileNet is widely used in many real-world applications which includes object detection, fine-grained classifications, face attributes, and localization. In this lecture, I will explain you the overview of MobileNet and how exactly it becomes the most efficient and lightweight neural network.
+
+
+
+EfficientNet
+https://www.geeksforgeeks.org/efficientnet-architecture/
+
+EfficientNet is a family of convolutional neural networks (CNNs) that aims to achieve high performance with fewer computational resources compared to previous architectures. It was introduced by Mingxing Tan and Quoc V. Le from Google Research in their 2019 paper "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks." The core idea behind EfficientNet is a new scaling method that uniformly scales all dimensions of depth, width, and resolution using a compound coefficient.
+
+
+
+
+
+
+
+
+PCA:
+https://www.ibm.com/think/topics/principal-component-analysis
+
+Principal component analysis (PCA) reduces the number of dimensions in large datasets to principal components that retain most of the original information. It does this by transforming potentially correlated variables into a smaller set of variables, called principal components.
+
+PCA summarizes the information content of large datasets into a smaller set of uncorrelated variables known as principal components. These principal components are linear combinations of the original variables that have the maximum variance compared to other linear combinations. These components capture as much information from the original dataset as possible.
+
+This statistical technique involves both linear algebra and matrix operations, and it transforms the original dataset into a new coordinate system that is structured by the principal components. The eigenvectors and eigenvalues from the covariance matrix that underpin the principal components allow for the analysis of these linear transformations.
+
+Imagine you have mapped out a dataset with multiple features, resulting in a multi-dimensional scatterplot. Eigenvectors provide the direction of variance in the scatterplot. Eigenvalues are the coefficients of the eigenvectors; these denote the importance of this directional data. Therefore, a high eigenvalue means that the corresponding eigenvector is more critical. Since principal components represent the directions of maximum variance in the data, they are also the eigenvectors of the covariance matrix.
+
