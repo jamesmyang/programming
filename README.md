@@ -1,3 +1,3 @@
 # programming
 
-comment from VS Code using WSL
+Python Machine Learning/Deep Learning projects
