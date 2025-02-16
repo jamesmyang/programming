@@ -80,4 +80,48 @@ For example the following tweet "@YMourri and @AndrewYNg are tuning a GREAT AI m
 
 
 
-### 
+### Putting it all together
+
+Over all , you start with a given text, you perform preprocessing, then you do feature extraction to convert text into numerical representation as follows:
+
+![](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/_OTVrbipS9ek1a24qXvXFw_641fc5c72d974a4582c229f6ebf073f5_Screen-Shot-2020-09-01-at-8.20.08-AM.png?expiry=1738022400000&hmac=vFWeDdNBNgsjkUOCIaA7PJjfSuKbZVFeytbnf49apog)
+
+Your XX becomes of dimension (m,3)(m,3) as follows.
+
+![](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/C3BC-AlDRj-wQvgJQyY_8w_6b189b0ef72e456b9cce8c264796f567_Screen-Shot-2020-09-01-at-8.24.17-AM.png?expiry=1738022400000&hmac=IM6tltcZW2_T1Jb6w0V7h-FCjsscfiIjIjv-dHD-YjE)
+
+When implementing it with code, it becomes as follows:
+
+![](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/NwmjyOjKQTaJo8joyqE2Ow_330a68fd246c44c3a5409216b096559c_Screen-Shot-2020-09-01-at-8.20.48-AM.png?expiry=1738022400000&hmac=-CGwtCBEe0ICD0x41ti-3HYsC3li5e2MV-r0TEX3wmM)
+
+You can see in the last step you are storing the extracted features as rows in your XX matrix and you have mm of these examples.
+
+
+
+### Logistic Regression Overview
+
+Logistic regression makes use of the sigmoid function which outputs a probability between 0 and 1. The sigmoid function with some weight parameter θ\\theta and some input x(i)x^{(i)} is defined as follows.
+
+![](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/oL4Ox_JxTBi-DsfycUwYvw_d0582a0dddf7470486f0955c8b025dd6_Screen-Shot-2020-09-01-at-8.30.00-AM.png?expiry=1738108800000&hmac=1cvr-EmF6uH0qSpopL0PaQR9MvZtd_Cc7_ZXbt72DLw)
+
+Note that as θTx(i)\\theta^Tx^{(i)} gets closer and closer to −∞\-\\infty the denominator of the sigmoid function gets larger and larger and as a result, the sigmoid gets closer to 00. On the other hand, as θTx(i)\\theta^Tx^{(i)} gets closer and closer to ∞\\infty the denominator of the sigmoid function gets closer to 1 and as a result the sigmoid also gets closer to 11.
+
+Now given a tweet, you can transform it into a vector and run it through your sigmoid function to get a prediction as follows:
+
+![](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/THV0BbogT2i1dAW6IA9oMg_67bcc86617b54ac4b5750d51d032cd8f_Screen-Shot-2020-09-01-at-8.37.07-AM.png?expiry=1738108800000&hmac=0_7loLAyNwYrNTeLECrsUOFml97G6BsyLbmyeZ2QS48)
+
+
+
+### Logistic Regression: Training
+
+To train your logistic regression function, you will do the following:
+
+![](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/YGmjEyR0Sw2poxMkdBsNeQ_74cb9a1075fb4d1eb835b14a8d5b2456_Screen-Shot-2020-09-01-at-8.39.39-AM.png?expiry=1738108800000&hmac=cfq56zix-z3E_uKsKOlk8R4Atum7ZRJSpHK9ftVhdQE)
+
+You initialize your parameter θ\\theta, that you can use in your sigmoid, you then compute the gradient that you will use to update θ\\theta, and then calculate the cost. You keep doing so until good enough.
+
+**Note:** If you do not know what a gradient is, don't worry about it. I will show you what it is at then end of this week in an optional reading. In a nutshell, the gradient allows you to learn what θ\\theta is so that you can predict your tweet sentiment accurately.
+
+Usually you keep training until the cost converges. If you were to plot the number of iterations versus the cost, you should see something like this:
+
+![](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/kj9HzV22Qp2_R81dttKdLw_97bb4671b7384b0c8b8dbf59b253dea1_Screen-Shot-2020-09-01-at-8.49.51-AM.png?expiry=1738108800000&hmac=a8e3Q5u0ODgjpbsKC73_AgrKGxaEUkYZ8ozxT9kC-2s)
